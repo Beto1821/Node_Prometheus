@@ -12,6 +12,6 @@ scrape_configs:
 - job_name: aula
   static_configs:
   - targets:
-    - docker.for.mac.localhost:3000
+    - docker.for.mac.localhost:3010
 
     
