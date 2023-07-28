@@ -22,6 +22,7 @@ const tempoDeResposta = new promClient.Histogram({
 
 var zeraUsuariosLogados = false;
 
+// Stackoverflow: Normal distrubition With, Min , Max and Skew
 function randn_bm(min, max, skew) {
 	var u = 0, v = 0;
 	while (u === 0) u = Math.random(); //Converting [0,1) to (0,1)
