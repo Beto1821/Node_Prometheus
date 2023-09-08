@@ -50,7 +50,7 @@ setInterval(() => {
 	// Observa tempo de resposta
 	var tempoObservado = randn_bm(0, 3, 4);
 	tempoDeResposta.observe(tempoObservado);
-}, 150);
+}, 100);
 
 app.get('/', function (req, res) {
 	res.send('Hello word! Primeiros Passos Prometheus + Node');

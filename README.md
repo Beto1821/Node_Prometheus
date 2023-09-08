@@ -13,6 +13,8 @@ http://localhost:3010/
 
 http://localhost:3010/metrics
 
+http://localhost:9090/graph
+
 # Documents:
 
 https://prometheus.io/docs/instrumenting/clientlibs/
@@ -35,4 +37,6 @@ docker run --name grafana --network grafana-prometheus --network-alias grafana -
 
 ## Grafana Docker:
 docker run -d --name=grafana -p 3001:3000 grafana/grafana-enterprise
+
+OBS: admin/admin(default)
 
