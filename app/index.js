@@ -22,7 +22,6 @@ const tempoDeResposta = new promClient.Histogram({
 
 var zeraUsuariosLogados = false;
 
-// Stackoverflow: Normal distrubition With, Min , Max and Skew
 function randn_bm(min, max, skew) {
 	var u = 0, v = 0;
 	while (u === 0) u = Math.random(); //Converting [0,1) to (0,1)
@@ -50,11 +49,27 @@ setInterval(() => {
 	// Observa tempo de resposta
 	var tempoObservado = randn_bm(0, 3, 4);
 	tempoDeResposta.observe(tempoObservado);
-}, 100);
+}, 150);
 
 app.get('/', function (req, res) {
-	res.send('Hello word! Primeiros Passos Prometheus + Node');
+	res.send('Hello World!');
 });
+
+app.get('/zera-usuarios-logados', function (req, res) {
+	zeraUsuariosLogados = true;
+	res.send('OK');
+});
+
+app.get('/retorna-usuarios-logados', function (req, res) {
+	zeraUsuariosLogados = false;
+	res.send('OK');
+});
+
+app.get('/metrics', async function(req, res) {
+	res.set('Content-Type', register.contentType);
+	res.end(await register.metrics());
+})
+
 
 app.get('/zera-usuarios-logados', function (_req, res) {
 	zeraUsuariosLogados = true;
